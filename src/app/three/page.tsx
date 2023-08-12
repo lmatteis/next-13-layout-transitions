@@ -1,4 +1,4 @@
-export default function One() {
+export default async function One() {
   return (
     <div
       style={{
