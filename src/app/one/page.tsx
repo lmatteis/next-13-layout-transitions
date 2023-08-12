@@ -1,8 +1,8 @@
-export default function Home() {
+export default function One() {
   return (
     <div
       style={{
-        background: "#98FC99",
+        background: "#E6E6FA",
         height: "100%",
         width: "100%",
         display: "flex",
@@ -10,7 +10,7 @@ export default function Home() {
         alignItems: "center",
       }}
     >
-      <div style={{ fontSize: "100px", fontWeight: "bold" }}>Home</div>
+      <div style={{ fontSize: "100px", fontWeight: "bold" }}>One</div>
     </div>
   );
 }
