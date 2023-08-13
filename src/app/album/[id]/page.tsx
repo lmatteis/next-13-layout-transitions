@@ -1,9 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
 import beatlesAlbums from "../../../albums";
+import { usePlayer } from "../../context-player";
 
 export default function Page({ params: { id } }: { params: { id: number } }) {
   const album = beatlesAlbums.find((album) => album.id == id);
+  const { value, setValue } = usePlayer();
 
   return (
     <div>
@@ -30,6 +32,7 @@ export default function Page({ params: { id } }: { params: { id: number } }) {
           <p className="mt-2 text-lg">Indie — 2004</p>
           <div className="mt-3 flex">
             <button
+              onClick={() => setValue(id)}
               type="button"
               className="text-pink-600 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-lg px-10 py-3 text-center inline-flex items-center dark:focus:ring-gray-500 mr-4"
             >
