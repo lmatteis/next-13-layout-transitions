@@ -19,7 +19,7 @@ export default function Home() {
                 <motion.div
                   layoutId={`album-${album.id}`}
                   className="shadow-md hover:shadow-lg relative"
-                  data-astro-transition-scope="astro-65TVG7L3-1"
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
                 >
                   <img
                     className="card-image rounded-md relative z-10"

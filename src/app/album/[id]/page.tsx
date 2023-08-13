@@ -10,6 +10,7 @@ export default function Page({ params: { id } }: { params: { id: number } }) {
       <div className="container mx-auto max-w-screen-lg px-6 lg:px-0 flex flex-col items-start md:items-end md:flex-row pt-8 pb-12 overflow-hidden">
         <motion.div
           layoutId={`album-${id}`}
+          transition={{ duration: 0.2, ease: "easeInOut" }}
           className="relative shadow-xl mr-32 w-72 md:w-auto"
         >
           <img

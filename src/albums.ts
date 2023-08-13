@@ -30,7 +30,8 @@ const beatlesAlbums: Album[] = [
     id: 4,
     title: "Beatles for Sale",
     band: "The Beatles",
-    coverLink: "https://example.com/beatles-for-sale.jpg",
+    coverLink:
+      "https://upload.wikimedia.org/wikipedia/en/4/40/Beatlesforsale.jpg",
   },
   {
     id: 5,
@@ -43,19 +44,22 @@ const beatlesAlbums: Album[] = [
     id: 6,
     title: "Rubber Soul",
     band: "The Beatles",
-    coverLink: "https://example.com/rubber-soul.jpg",
+    coverLink:
+      "https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Rubber_Soul.jpg/220px-Rubber_Soul.jpg",
   },
   {
     id: 7,
     title: "Revolver",
     band: "The Beatles",
-    coverLink: "https://example.com/revolver.jpg",
+    coverLink:
+      "https://upload.wikimedia.org/wikipedia/en/thumb/e/ec/Revolver_%28album_cover%29.jpg/220px-Revolver_%28album_cover%29.jpg",
   },
   {
     id: 8,
     title: "Sgt. Pepper's Lonely Hearts Club Band",
     band: "The Beatles",
-    coverLink: "https://example.com/sgt-peppers.jpg",
+    coverLink:
+      "https://upload.wikimedia.org/wikipedia/en/5/50/Sgt._Pepper%27s_Lonely_Hearts_Club_Band.jpg",
   },
 ];
 
