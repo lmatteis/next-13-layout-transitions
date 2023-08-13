@@ -2,33 +2,29 @@ import "./global.css";
 
 import { PropsWithChildren } from "react";
 import Link from "next/link";
-import { Animate } from "../components/Animate";
 
 export default function Layout({ children }: PropsWithChildren) {
   return (
     <html>
       <body>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            position: "fixed",
-            width: "100vw",
-            gap: "20px",
-            marginTop: "30px",
-            fontSize: "20px",
-            zIndex: "100",
-          }}
+        <nav
+          className="w-full border-b bg-white"
+          id="page-header"
+          data-astro-transition-persist="header"
         >
-          <Link href="/">Home</Link>
-          <Link href="/one">One</Link>
-          <Link href="/two">Two</Link>
-          <Link href="/three">Three</Link>
-          <Link href="/four">Four</Link>
-        </div>
+          <div className="w-full container mx-auto max-w-screen-lg px-6 lg:px-0 flex flex-wrap items-center mt-0 py-6">
+            <div>
+              <Link
+                className="flex items-center tracking-tight no-underline hover:no-underline font-bold text-black text-xl"
+                href="/"
+              >
+                Home
+              </Link>
+            </div>
+          </div>
+        </nav>
 
-        <Animate>{children}</Animate>
+        {children}
       </body>
     </html>
   );

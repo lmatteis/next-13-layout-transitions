@@ -1,21 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-html,
-body {
-  margin: 0px;
-  padding: 0px;
-  font-family: sans-serif;
-}
-body {
-  width: 100vw;
-  height: 100vh;
-}
-a {
-  color: black;
-  text-decoration: underline;
-}
-a:hover {
-  text-decoration: none;
-}
