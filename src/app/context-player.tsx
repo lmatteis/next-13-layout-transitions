@@ -44,7 +44,7 @@ const ContextClickPlayer = () => {
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-gray-100">
       <div className="flex-1 bg-gray-200 h-1.5 dark:bg-gray-700">
-        <div className="bg-pink-500 h-1.5" style={{ width: "5.03636%" }} />
+        <div className="bg-green-500 h-1.5" style={{ width: "5.03636%" }} />
       </div>
       <div className="container mx-auto max-w-screen-lg px-3 py-2 sm:px-6 sm:py-4 flex items-center gap-5">
         <img

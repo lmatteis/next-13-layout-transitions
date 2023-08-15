@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import beatlesAlbums from "../../../albums";
 import { usePlayer } from "../../context-player";
+import { transition } from "../../transition";
 
 export default function Page({ params: { id } }: { params: { id: number } }) {
   const album = beatlesAlbums.find((album) => album.id == id);
@@ -10,35 +11,26 @@ export default function Page({ params: { id } }: { params: { id: number } }) {
   return (
     <div>
       <div className="container mx-auto max-w-screen-lg px-6 lg:px-0 flex flex-col items-start md:items-end md:flex-row pt-8 pb-12 overflow-hidden">
-        <motion.div
-          layoutId={`album-${id}`}
-          transition={{ duration: 0.2, ease: "easeInOut" }}
-          className="relative shadow-xl mr-32 w-72 md:w-auto"
-        >
-          <img
-            src={album?.coverLink}
-            alt={album?.title}
-            width={400}
-            height={400}
-            className="block rounded-md tag-album-cover relative bg-white"
-            style={{ viewTransitionName: "record-2177412" }}
-          />
-        </motion.div>
-        <div className="flex-1 flex flex-col justify-end pt-8">
-          <h1 className="text-5xl font-bold tracking-tight text-gray-900">
-            {album?.title}
-          </h1>
-          <p className="mt-3 text-3xl">{album?.band}</p>
-          <p className="mt-2 text-lg">Indie — 2004</p>
-          <div className="mt-3 flex">
+        <div className="flex-1 flex flex-col justify-end pt-8 mr-32">
+          <motion.div layoutId={`album-${id}-info`} transition={transition}>
+            <h1 className="text-5xl font-bold tracking-tight text-gray-900">
+              {album?.title}
+            </h1>
+            <p className="mt-3 text-3xl">{album?.band}</p>
+          </motion.div>
+          <motion.div
+            initial={{ y: 100 }}
+            animate={{ y: 0 }}
+            className="mt-3 flex"
+          >
             <button
               onClick={() => setValue(id)}
               type="button"
-              className="text-pink-600 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-lg px-10 py-3 text-center inline-flex items-center dark:focus:ring-gray-500 mr-4"
+              className="text-green-600 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-lg px-10 py-3 text-center inline-flex items-center dark:focus:ring-blue-500 mr-4"
             >
               <svg
                 aria-hidden="true"
-                className="w-6 h-6 mr-2 -ml-1 text-pink-600"
+                className="w-6 h-6 mr-2 -ml-1 text-green-600"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -53,10 +45,10 @@ export default function Page({ params: { id } }: { params: { id: number } }) {
             </button>
             <button
               type="button"
-              className="text-pink-600 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-lg px-10 py-3 text-center inline-flex items-center dark:focus:ring-gray-500 mr-4"
+              className="text-green-600 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-lg px-10 py-3 text-center inline-flex items-center dark:focus:ring-gray-500 mr-4"
             >
               <svg
-                className="w-6 h-6 mr-2 -ml-1 text-pink-600"
+                className="w-6 h-6 mr-2 -ml-1 text-green-600"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -69,10 +61,28 @@ export default function Page({ params: { id } }: { params: { id: number } }) {
               </svg>
               Shuffle
             </button>
-          </div>
+          </motion.div>
         </div>
+        <motion.div
+          layoutId={`album-${id}`}
+          transition={transition}
+          className="relative shadow-xl w-72 md:w-auto"
+        >
+          <img
+            src={album?.coverLink}
+            alt={album?.title}
+            width={400}
+            height={400}
+            className="block rounded-md tag-album-cover relative bg-white"
+            style={{ viewTransitionName: "record-2177412" }}
+          />
+        </motion.div>
       </div>
-      <div className="container mx-auto max-w-screen-lg mb-10">
+      <motion.div
+        initial={{ y: 100 }}
+        animate={{ y: 0 }}
+        className="container mx-auto max-w-screen-lg mb-10"
+      >
         <ul className="text-xl">
           <li className="hover:bg-gray-50 cursor-pointer px-6 py-4 flex border-b first:border-t items-center">
             <span className="text-gray-500 w-8 mr-2">1</span>
@@ -130,7 +140,7 @@ export default function Page({ params: { id } }: { params: { id: number } }) {
             <span className="text-gray-500 ml-auto">5:45</span>
           </li>
         </ul>
-      </div>
+      </motion.div>
     </div>
   );
 }
